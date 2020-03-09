@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function Tests</title>
+</head>
+<body>
+<pre><script>
+    const id = x => x;
+    const fst = x => y => x;
+
+    const snd = x => y => id(y);
+
+    const x_ = Math.random();
+    const y_ = Math.random();
+    document.writeln(snd(x_)(y_) === y_);
+    </script>
+    </pre>
+</body>
+</html>
