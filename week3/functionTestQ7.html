@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function Tests</title>
+</head>
+<body>
+<pre><script>
+    const T = "true";
+    const F = "false";
+
+    //Q7.1
+    const pair = a => b => f => f(a)(b);
+    const fst = p => p(T);
+    const snd = p => p(F);
+
+    let oneTwo = pair(1,2);
+    document.write("7.1: ");
+    document.writeln(fst(oneTwo) === 1);
+
+    //Q7.2
+    oneTwo = pair(1)(2);
+    fst(oneTwo) = 0;
+    document.write("7.2: ");
+    document.writeln(fst(oneTwo) === 0);
+    </script>
+    </pre>
+</body>
+</html>

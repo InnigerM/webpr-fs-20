@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function Tests</title>
+</head>
+<body>
+<pre><script>
+    //Q9.1
+    const id = x => x;
+    const Left = x => f => g => f(x);
+    const Right = x => f => g => g(x);
+    const either = e => f => g => e(f)(g);
+
+    const safeDiv = num => divisor => divisor === 0
+        ? Left("cannot divide by 0")
+        : Right(num / divisor);
+
+    let result = safeDiv(1)(0);
+
+    document.write("9.1: ");
+
+    either(result)
+    (msg => document.writeln(msg))
+    (val => document.writeln(val === 1));
+
+    //Q9.2
+    result = safeDiv(1)(0);
+
+    document.write("9.2: ");
+
+    either(result)
+    (msg => document.writeln(msg));
+    document.writeln("");
+
+    //Q9.3
+    result = safeDiv(1)(1);
+
+    document.write("9.3");
+
+    either(result)
+    (msg => document.writeln(msg))
+    (val => document.writeln(val === 1));
+
+    //Q9.4
+    result = safeDiv(1)(0);
+
+    document.write("9.4: ");
+
+    either(result)
+    (msg => document.writeln(msg));
+
+    //9.5
+    // result = safeDiv(1)(0);
+    //
+    // document.write("9.5: ");
+    //
+    // either(result)
+    // (msg => document.writeln(msg));
+    //
+    // const eShow = f => x => y => either(f(x)(y))
+    //     ? (msg => document.writeln(msg))
+    //     : (val => document.writeln(val));
+    //
+    // console.log(eShow(1)(0));
+
+    //Q9d
+    const times = x => y => x * y;
+    const twice = times(2);
+    console.log([1, 2, 3].map(twice).toString() === "2, 4, 6");
+
+    //Q9e
+    const divides = x => y => y % x === 0;
+    console.log([1, 2, 3, 4, 5, 6].filter(divides(3)));
+
+    //Q9f
+    const join = x => y => z => y + x + z;
+    console.log([1,2,3].reduce(join('-')));
+    </script>
+    </pre>
+</body>
+</html>
