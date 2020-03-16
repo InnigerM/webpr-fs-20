@@ -40,6 +40,10 @@ const firstname = fst;
 const lastname  = snd;
 >>>>>>> c0f7a49c10182db8f165f85925ae68d5d01245ce
 
+const Left   = x => f => g => f(x);
+const Right  = x => f => g => g(x);
+const either = e => f => g => e(f)(g);
+
 // ----- special -----
 
 const Tuple = n => [
