@@ -9,8 +9,13 @@ function start() {
     const canvas       = document.getElementById('canvas');
     const context      = canvas.getContext("2d");
 
-    // todo: how to display?
+    const update = () => {
+        const f = Function('x', 'return ' + userFunction.value);
+        display(context, f);
+    };
+    update();
 
+    userFunction.onchange = text => update();
 }
 
 function display(context, f) {

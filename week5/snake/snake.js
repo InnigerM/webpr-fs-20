@@ -31,7 +31,6 @@ const pairMap = f => p =>  pair ( f (fst(p)) ) ( f (snd(p)) );
 
 function changeDirection(orientation) {
     const idx = orientation.indexOf(direction);
-    console.log(idx);
     direction = orientation[idx + 1];
 }
 

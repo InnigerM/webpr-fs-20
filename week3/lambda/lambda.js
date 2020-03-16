@@ -3,13 +3,6 @@ const fst = x => y => x;
 const snd = x => y => y;
 const M   = f => f (f);
 
-<<<<<<< HEAD
-const id = x => x;
-const fst = x => y => x;
-const snd = x => y => y;
-
-const M = f => f (f); //Mockingbird
-
 const konst = fst;
 
 const T = fst;
@@ -26,23 +19,6 @@ const lastname = snd;
 const Left = msg => f => g => f(msg);
 const Right = res => f => g => g(res);
 const either = e => f => g => e (f) (g);
-=======
-const konst = fst;
-
-const T = first => second => first;
-const F = first => second => second;
-
-const and = first => second => first ( second ) ( first );
-const or  = M ;
-
-const Pair = first => second => selector  => selector (first) (second);
-const firstname = fst;
-const lastname  = snd;
->>>>>>> c0f7a49c10182db8f165f85925ae68d5d01245ce
-
-const Left   = x => f => g => f(x);
-const Right  = x => f => g => g(x);
-const either = e => f => g => e(f)(g);
 
 // ----- special -----
 
