@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function Tests</title>
+</head>
+<body>
+<pre><script>
+    //Q9.1
+    const id = x => x;
+    const Left = x => f => g => f(x);
+    const Right = x => f => g => g(x);
+    const either = e => f => g => e(f)(g);
+
+    const safeDiv = num => divisor => divisor === 0
+        ? Left("cannot divide by 0")
+        : Right(num / divisor);
+
+    //Q10a
+    //    const bonusFormula = 'employee.bonus = employee.revenue * 0.2';
+    //    const bonusCalculation = (employee) => {
+    //        eval(bonusFormula);
+    //    };
+    //    const e = {revenue: 10000, bonus: null};
+    //    bonusCalculation(e);
+    //    document.writeln(e.bonus);
+    //    document.writeln(e.bonus === e.revenue * 0.2);
+
+    //Q10b
+    const bonusFormula = 'employee.revenue * 0.2';
+
+    const bonusCalculation = (employee) => {
+        const f = Function('x', bonusFormula);
+        employee.bonus = f;
+        console.log(employee.bonus);
+    };
+
+    const e = {revenue: 10000, bonus: null};
+    bonusCalculation(e);
+    document.writeln(e.bonus === e.revenue * 0.2);
+    </script>
+    </pre>
+</body>
+</html>
