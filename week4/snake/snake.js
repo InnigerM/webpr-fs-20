@@ -50,7 +50,6 @@ const log = s => console.log(s);
 
 function start() {
 
-    // todo: if safeGetElementById("canvas") yields an error message, log it. Otherwise startWithCanvas
     either(safeGetElementById("canvas"))
     (console.log()) // Error Case
         (startWithCanvas()) //OK Case

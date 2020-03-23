@@ -13,7 +13,7 @@
     const either = e => f => g => e(f)(g);
 
     const safeDiv = num => divisor => divisor === 0
-        ? Left("cannot divide by 0")
+        ? Left("Cannot divide by 0")
         : Right(num / divisor);
 
     let result = safeDiv(1)(0);
@@ -50,19 +50,32 @@
     either(result)
     (msg => document.writeln(msg));
 
-    //9.5
-    // result = safeDiv(1)(0);
-    //
-    // document.write("9.5: ");
-    //
-    // either(result)
-    // (msg => document.writeln(msg));
-    //
+    //Q9.5
+    result = safeDiv(1)(0);
+
+    document.write("9.5: ");
+
+    either(result)
+    (msg => document.writeln(msg));
+
     // const eShow = f => x => y => either(f(x)(y))
     //     ? (msg => document.writeln(msg))
     //     : (val => document.writeln(val));
     //
     // console.log(eShow(1)(0));
+    document.writeln();
+
+    //Q9c
+    const eShow = f => either(f)
+    (msg => document.writeln(msg))
+    (val => document.writeln(val));
+
+    const x_ = Math.random();
+    document.write("9c: ");
+    document.writeln(eShow(safeDiv(1)(0)) === "Cannot divide by 0");
+    document.writeln(eShow(safeDiv(x_)(1)) === "Result is: " + safeDiv(x_)(1) + ", ");
+    document.write(", ");
+    document.writeln(eShow(safeDiv(1)(0)) === "Cannot divide by 0" && eShow(safeDiv(x_)(1)) === "Result is: " + safeDiv(x_)(1));
 
     //Q9d
     const times = x => y => x * y;
@@ -75,7 +88,7 @@
 
     //Q9f
     const join = x => y => z => y + x + z;
-    console.log([1,2,3].reduce(join('-')));
+    console.log([1, 2, 3].reduce(join('-')));
     </script>
     </pre>
 </body>
