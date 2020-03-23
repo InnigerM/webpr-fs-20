@@ -44,8 +44,7 @@ function safeGetElementById(id) {
 const log = s => console.log(s);
 
 function start() {
-
-    either (safeGetElementById("canvas"))
+    safeGetElementById("canvas")
            (log)
            (startWithCanvas);
 }
