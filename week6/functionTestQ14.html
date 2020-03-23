@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function Tests</title>
+</head>
+<body>
+<pre><script>
+    //Q9.1
+    const id = x => x;
+    const Left = x => f => g => f(x);
+    const Right = x => f => g => g(x);
+    const either = e => f => g => e(f)(g);
+
+    const safeDiv = num => divisor => divisor === 0
+        ? Left("cannot divide by 0")
+        : Right(num / divisor);
+
+    xs1_ = [1, 2, 3, 4];
+    ys2_ = [1, 2, 3, 4];
+
+    Array.prototype.eq = function (arr2) {
+        let counter = 0;
+        for (let i = 0; i < arr2.length; i++) {
+            if (this[i] === arr2[i]) {
+                counter++;
+            }
+        }
+        return counter === arr2.length && arr2.length === this.length;
+    };
+
+    document.writeln(xs1_.eq(ys2_));
+    </script>
+    </pre>
+</body>
+</html>

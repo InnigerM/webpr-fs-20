@@ -67,8 +67,8 @@
 
     //Q9c
     const eShow = f => either(f)
-    (msg => document.writeln(msg))
-    (val => document.writeln(val));
+    (msg => msg)
+    (val => val);
 
     const x_ = Math.random();
     document.write("9c: ");
@@ -87,8 +87,8 @@
     console.log([1, 2, 3, 4, 5, 6].filter(divides(3)));
 
     //Q9f
-    const join = x => y => z => y + x + z;
-    console.log([1, 2, 3].reduce(join('-')));
+    const join = x => (acc, curr) => acc.toString() + x + curr.toString();
+    console.log([1, 2, 3].reduce(join('-')) === '1-2-3');
     </script>
     </pre>
 </body>

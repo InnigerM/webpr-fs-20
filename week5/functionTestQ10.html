@@ -29,11 +29,7 @@
     //Q10b
     const bonusFormula = 'employee.revenue * 0.2';
 
-    const bonusCalculation = (employee) => {
-        const f = Function('x', bonusFormula);
-        employee.bonus = f;
-        console.log(employee.bonus);
-    };
+    const bonusCalculation = Function('employee', 'return employee.bonus = ' + bonusFormula);
 
     const e = {revenue: 10000, bonus: null};
     bonusCalculation(e);
