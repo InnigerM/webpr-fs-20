@@ -49,4 +49,27 @@ function display() {
     progressfield.setAttribute("CLASS", "field progress");
 }
 
+function Player (name) {
+    let progressIndex = 0;
+    let fallbackIndex = 0;
+    return {
+        proceed: function (stride) {
+            progressIndex += stride;
+        },
+        fallback: function () {
+            progressIndex = fallbackIndex;
+        },
+        turn: function () {
+            fallbackIndex = progressIndex;
+        },
+        getFallbackIndex: function () {
+            return fallbackIndex;
+        },
+        getProgressIndex: function () {
+            return progressIndex;
+        }
+    }
+};
+
 player = Player("One");
+
