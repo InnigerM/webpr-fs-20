@@ -93,6 +93,7 @@
     }
 
     const dk = Person( {work: () => ""} );
+    Object.setPrototypeOf(dk, Person.prototype);
 
     ok.push(dk instanceof Person);
 

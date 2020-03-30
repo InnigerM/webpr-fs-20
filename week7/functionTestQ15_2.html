@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function Tests</title>
+</head>
+<body>
+<pre><script>
+    class Person {
+        constructor(name) {
+            this.name = name;
+        }
+        isCool() {
+            return this.name.length > 3
+        };
+    }
+
+    const p = new Person("Dierk");
+    document.writeln(p.isCool());
+
+    class PersonTwo {
+        isCool() {
+            return this.name.length > 3
+        }
+    }
+
+    const pTwo = new PersonTwo();
+    pTwo.name = "Dierk";
+    document.writeln(pTwo.isCool());
+
+    const pThree = new Person("Joe");
+    pThree.isCool = () => true;
+    document.writeln(pThree.isCool());
+
+    const pFour = new Person("Dierk");
+    document.writeln(pFour.name === "Dierk");
+
+    const pFive = new Person("Dierk");
+    const joe ={
+        name: "joe",
+        cool: pFive.isCool()
+    };
+    document.writeln("Hi " + joe.cool);
+
+    const pSix = new Person("Dierk");
+    document.writeln(pSix.isCool());
+
+    class PersonThree {
+        constructor(name) {
+            this.name = name
+        }
+        isCool() {
+            return name === 'Dierk'
+        };
+    }
+
+    const pSeven = new PersonThree("Dierk");
+    document.writeln(pSeven.isCool());
+
+    const pEight = new Person("Joe");
+    Person.prototype.isCool= () => true;
+    document.writeln(pEight.isCool());
+
+    </script>
+    </pre>
+</body>
+</html>

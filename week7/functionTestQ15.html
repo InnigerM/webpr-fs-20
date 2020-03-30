@@ -13,26 +13,40 @@
     const either = e => f => g => e(f)(g);
 
     const arrayFunc = Array.from({length : 10}, (item, index) => index);
-    document.writeln(arrayFunc);
+    // document.writeln(arrayFunc);
 
     const safeDiv = num => divisor => divisor === 0
         ? Left("cannot divide by 0")
         : Right(num / divisor);
 
-    xs1_ = [1, 2, 3, 4];
-    ys2_ = [1, 2, 3, 4];
+    const Empty = ( () => {
+        function Empty() {}
+        return Empty;
+    }) ();
 
-    Array.prototype.eq = function (arr2) {
-        let counter = 0;
-        for (let i = 0; i < arr2.length; i++) {
-            if (this[i] === arr2[i]) {
-                counter++;
-            }
-        }
-        return counter === arr2.length && arr2.length === this.length;
-    };
+    const empty = new Empty;
+    const also = new Empty;
 
-    document.writeln(xs1_.eq(ys2_));
+    Empty.prototype.answer = 42;
+
+    document.writeln(
+        empty.answer === 42 && also.answer === 42
+    );
+
+    const emptyTwo = Empty;
+
+    document.writeln(emptyTwo instanceof Empty);
+
+    function EmptyX() {}
+
+    const emptyThree = new EmptyX();
+
+    EmptyX.prototype.answer = 42;
+
+    document.writeln(emptyThree.answer === 42);
+
+    const emptyFour = new Empty;
+    document.writeln(emptyFour instanceof Empty);
     </script>
     </pre>
 </body>

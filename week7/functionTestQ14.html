@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function Tests</title>
+</head>
+<body>
+<pre><script>
+    const Person = name => {
+        let age = 0;
+        return {
+            getAge: () => age,
+            setAge: newAge => age = newAge,
+            getName: () => name,
+            setName: newName => name = newName
+        }
+    };
+
+    const me = Person("Myself");
+    me.name = "***";
+    document.writeln(me.getName() === "***");
+
+    const meTwo = Person("Myself");
+    me.setAge(50);
+    document.writeln(me.getAge() === 50);
+
+    const meThree = Person("Myself");
+    me.setName("Sherlock");
+    document.writeln(me.getName() === "Sherlock");
+
+    const meFour = Person("Myself");
+    me.age = 50;
+    document.writeln(meFour.getAge() === 50);
+    </script>
+    </pre>
+</body>
+</html>
