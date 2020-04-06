@@ -6,7 +6,7 @@ test("util-times1", assert => {
     const collect = [];
 
     (10).times( n => collect.push(n) );
-
+    debugger;
     assert.equals(collect.length ,  10);
     assert.equals(collect[0]     ,   0);
     assert.equals(collect[9]     ,   9);
