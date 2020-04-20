@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function Tests</title>
+</head>
+<body>
+<pre><script>
+    class PersonEmpty {}
+    class StudentEmpty {}
+    const s = new StudentEmpty();
+    Object.setPrototypeOf(StudentEmpty.prototype, PersonEmpty.prototype);
+    document.writeln(s instanceof PersonEmpty);
+
+    class Person {
+        constructor(name) {
+            this.name = name;
+        }
+        isCool() {return this.name.length > 3};
+    }
+    const p = new Person("Dierk");
+    document.writeln(p instanceof Person);
+
+    const pOne = {};
+    Object.setPrototypeOf(p, PersonEmpty.prototype);
+    document.writeln(pOne instanceof PersonEmpty);
+
+    const sOne = new StudentEmpty();
+    Object.setPrototypeOf(StudentEmpty, PersonEmpty);
+    document.writeln(sOne instanceof Person);
+
+    const sTwo = new StudentEmpty();
+    Object.setPrototypeOf(sTwo, StudentEmpty.prototype);
+    document.writeln(sTwo instanceof Person);
+
+    class PersonEmptyTwo {}
+    class StudenEmptyExtends extends PersonEmptyTwo {}
+    const sThree = new StudenEmptyExtends();
+    document.writeln(sThree instanceof StudenEmptyExtends);
+
+    document.writeln(sThree instanceof PersonEmptyTwo);
+
+    class PersonEmptyThree {
+
+    }
+    const pTwo = {};
+    Object.setPrototypeOf(pTwo, PersonEmptyThree);
+    document.writeln(pTwo instanceof PersonEmptyThree);
+
+    const sFour = new StudentEmpty();
+    Object.setPrototypeOf(sFour, PersonEmpty.prototype);
+    document.writeln(sFour instanceof StudentEmpty);
+    </script>
+    </pre>
+</body>
+</html>
