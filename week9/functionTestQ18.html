@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function Tests</title>
+</head>
+<body>
+<pre><script>
+    function handle(callback) {
+        const result = [];
+        callback(result);
+        return result;
+    }
+
+    document.writeln(handle(() => [1]).length === 1);
+
+    document.writeln(handle(it => it.push(1)).length === 1);
+
+    function handle2(callback) {
+        const result = [];
+        callback([]);
+        return result;
+    }
+
+    document.writeln(handle2(it => it.push[1]).length === 1);
+
+    // let it = [];
+    // document.writeln(handle (it.push(1)).length === 1);
+
+    document.writeln(handle2( () => [1]).length === 1);
+
+    // document.writeln(handle(() => it.push(1)).length === 1);
+
+    function handle3(callback){
+        return callback([]);
+    }
+    document.writeln(handle3(it => {it.push(1); return it;}).length === 1);
+
+    function handle4(callback){
+        const result = [];
+        callback(result);
+        callback(result);
+        return result;
+    }
+
+    document.writeln(handle4(it => it.push(1)).length === 2);
+
+    let it = [];
+    document.writeln(handle( () => it.push(1)).length === 1);
+
+    function handle5(count, callback){
+        const result = [];
+        for(let i = 0; i < count; i++){
+            callback(result);
+        }
+        return result;
+    }
+    document.writeln(handle5(3, it => it.push(1)).length === 3);
+
+    document.writeln(handle(it.push(1)).length === 1);
+    </script>
+    </pre>
+</body>
+</html>

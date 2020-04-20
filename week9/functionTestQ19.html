@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function Tests</title>
+</head>
+<body>
+<pre><script>
+    const Observable = value => {
+        const listeners = [];
+        return {
+            onChange: callback => listeners.push(callback),
+            getValue: () => value,
+            setValue: val => {
+                if (value === val) return;
+                value = val;
+                listeners.forEach(listener => listener(val));
+            }
+        }
+    };
+
+    const colorOne = Observable('white');
+    let updateCountOne = 0;
+    const updateListenerOne = val => updateCountOne++;
+    colorOne.setValue('black');
+    document.writeln(updateCountOne === 1);
+
+    const colorTwo = Observable('white');
+    colorTwo.setValue('black');
+    document.writeln(colorTwo.getValue() === 'black');
+
+    const colorThree = Observable('white');
+    let observed = colorThree.getValue();
+    colorThree.onChange(val => observed = val);
+    document.writeln(observed === colorThree.getValue());
+
+    const colorFour = Observable('white');
+    colorFour.value = 'black';
+    document.writeln(colorFour.getValue() === 'black');
+
+    const colorFive = Observable('white');
+    let updateCount = 0;
+    colorFive.onChange(_ => updateCount++);
+    colorFive.setValue('white');
+    document.writeln(updateCount === 1);
+
+    const colorSix = Observable('white');
+    let updateCountTwo = 0;
+    colorSix.onChange(_ => updateCountTwo++);
+    colorSix.setValue('black');
+    document.writeln(updateCountTwo === 1);
+
+    const colorSeven = Observable('white');
+    let observedTwo = null;
+    colorSeven.onChange(val => observedTwo = val);
+    document.writeln(observedTwo === colorSeven.getValue());
+
+    const colorEight = Observable('white');
+    document.writeln(colorEight.getValue() === 'white');
+
+    const colorNine = Observable('white');
+    let observedThree = null;
+    colorNine.onChange(val => observedThree = val);
+    colorNine.setValue('black');
+    document.writeln(observedThree === colorNine.getValue());
+
+    const colorTen = Observable('white');
+    let updateCountThree = 0;
+    colorTen.onChange( _ => updateCountThree++);
+    colorTen.setValue('black');
+    colorTen.setValue('white');
+    document.writeln(updateCountThree === 2);
+    </script>
+    </pre>
+</body>
+</html>

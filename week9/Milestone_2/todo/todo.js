@@ -44,7 +44,7 @@ const TodoView = (rootElement, numberOfTasksElement, numberOfOpenTasksElement) =
         const template = document.createElement('DIV'); // only for parsing
         template.innerHTML = `
             <button class="delete">&times;</button>
-            <input type="text" size="42">
+            <input type="text" size="42" value="Add Todo text">
             <input type="checkbox">            
         `;
         return template.children;
