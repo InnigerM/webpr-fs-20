@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function Tests</title>
+</head>
+<body>
+<pre><script>
+    const add_ = 1;
+    const factor_ = 2;
+
+    const inc = x => x + 1;
+    const add = x => x + add_;
+    const double = x => x * x;
+    const mult = x => x * factor_;
+    Function.prototype.then = f => x => {
+        return f(x);
+    };
+    console.log(add.then(mult)(1));
+    console.log(add.then(mult).then(add) (1));
+    console.log(add.then(mult).then(add) (1) === (1 + add_) * factor_ + add_);
+    </script>
+    </pre>
+</body>
+</html>
