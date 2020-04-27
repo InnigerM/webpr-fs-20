@@ -13,8 +13,11 @@
     const add = x => x + add_;
     const double = x => x * x;
     const mult = x => x * factor_;
-    Function.prototype.then = f => x => {
-        return f(x);
+    Function.prototype.then = function(action){
+        const self = this;
+        return function(parameter){
+            return action(self(parameter));
+        }
     };
     console.log(add.then(mult)(1));
     console.log(add.then(mult).then(add) (1));
