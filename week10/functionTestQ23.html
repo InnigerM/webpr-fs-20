@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function Tests</title>
+</head>
+<body>
+<pre><script>
+    //23.1
+    // const idPromise = x => new Promise (resolve => resolve(x));
+    // idPromise(1)
+    //     .then(it => {
+    //         document.writeln(it);
+    //         return idPromise(it);
+    //     })
+    //     .then(it => document.writeln(it));
+
+    //23.2
+    // const idPromiseTwo = x => new Promise (resolve => resolve(x));
+    // const writer = x => {
+    //     document.writeln(x);
+    //     return idPromiseTwo(x);
+    // };
+    // idPromiseTwo(1)
+    //     .then(writer)
+    //     .then(it => it + 1)
+    //     .then(writer);
+
+    //23.3
+    // const idPromise = x => new Promise (resolve => resolve(x));
+    // const writer = x => {
+    //     document.writeln(x);
+    //     return idPromise(x);
+    // };
+    // const filterEven = n => n % 2 === 0 ? n : undefined;
+    // idPromise(1)
+    //     .then(writer)
+    //     .then(filterEven)
+    //     .then(writer)
+
+    //23.4
+    // const idPromise = x => new Promise (resolve => resolve(x));
+    // idPromise(1)
+    //     .then(it => it)
+    //     .then(it => document.writeln(it));
+
+    //23.4
+    // const idPromise = x => new Promise (resolve => resolve(x));
+    // const writer = x => {
+    //     document.writeln(x);
+    //     return idPromise(x);
+    // };
+    // const inc = n => n + 1;
+    // const filterEven = n => n % 2 === 0 ? n : undefined;
+    // idPromise(1)
+    //     .then(writer)
+    //     .then(inc)
+    //     .then(writer)
+    //     .then(filterEven)
+    //     .then(writer);
+
+    //23.5
+    // const idPromise = x => new Promise (resolve => resolve(x));
+    // document.writeln(idPromise(1));
+
+    //23.6
+    // const idPromise = x => new Promise (resolve => resolve(x));
+    // const writer = x => {
+    //     document.writeln(x);
+    //     return idPromise(x);
+    // };
+    // idPromise(1)
+    //     .then(writer)
+    //     .then(it => document.writeln(it));
+
+    //23.7
+    // const idPromise = x => new Promise (resolve => resolve(x));
+    // const writer = x => {
+    //     document.writeln(x);
+    //     return idPromise(x);
+    // };
+    // idPromise(1)
+    //     .then(writer)
+    //     .then(it => it + 1)
+    //     .then(writer);
+
+    //23.8
+    // const idPromise = x => new Promise (resolve => resolve(x));
+    // const writer = x => {
+    //     document.writeln(x);
+    //     return idPromise(x);
+    // };
+    // const filterEven = n => n % 2 === 0 ? n : undefined;
+    // idPromise(1)
+    //     .then(writer)
+    //     .then(filterEven)
+    //     .then(writer);
+
+    //23.9
+    // const idPromise = x => new Promise (resolve => resolve(x));
+    // idPromise(1)
+    //     .then(it => {
+    //         document.writeln(it);
+    //         return it
+    //     })
+    //     .then(it => document.writeln(it));
+
+    //23.10
+    // const idPromise = x => new Promise (resolve => resolve(x));
+    // const writer = x => {
+    //     document.writeln(x);
+    //     return idPromise(x);
+    // };
+    // const filterEven = n => {
+    //     if (n % 2 === 0) return n; else throw Error("not even")
+    // };
+    // idPromise(1)
+    //     .then(writer)
+    //     .then(filterEven)
+    //     .then(writer)
+    //     .catch(err => {
+    //     });
+
+    //23.11
+    // const idPromise = x => new Promise (resolve => resolve(x));
+    // const writer = x => {
+    //     document.writeln(x);
+    //     return idPromise(x);
+    // };
+    // const filterEven = n => n % 2 === 0 ? n : undefined;
+    // idPromise(1)
+    //     .then(writer)
+    //     .then(filterEven)
+    //     .then(writer);
+
+    //23.12
+    // const idPromise = x => new Promise (resolve => resolve(x));
+    // idPromise(1)
+    //     .then(it => document.writeln(it))
+    //     .then(it => document.writeln(it));
+
+    //23.13
+    const idPromise = x => new Promise (resolve => resolve(x));
+    const writer = x => {
+        document.writeln(x);
+        return idPromise(x);
+    };
+    const filterEven = n => {
+        if (n % 2 === 0) return n; else throw Error("not even")
+    };
+    idPromise(1)
+        .then(writer)
+        .then(filterEven)
+        .then(writer)
+        .catch(err => {
+        });
+    </script>
+    </pre>
+</body>
+</html>
