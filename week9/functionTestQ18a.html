@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function Tests</title>
+</head>
+<body>
+<pre><script>
+    const failSafe = function (defValue) {
+        return function (callback) {
+            return function (parameter) {
+                try {
+                    return callback(parameter);
+                } catch (err) {
+                    return defValue;
+                }
+            }
+        }
+    };
+
+    const doError = x => {
+        throw new Error()
+    };
+    const errorCount = failSafe (1) (doError);
+
+    console.log(failSafe (false) (x => x) (true) && failSafe (true) (doError) (null) && errorCount(null) === 1);
+    </script>
+    </pre>
+</body>
+</html>
