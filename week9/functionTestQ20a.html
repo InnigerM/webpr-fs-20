@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function Tests</title>
+</head>
+<body>
+<pre><script>
+    const x_ = 1;
+    const y_ = 5;
+    const z_ = 10;
+
+    const Observable = value => {
+        const listeners = [];
+        return {
+            onChange: callback => {
+                listeners.push(callback);
+                callback(value, value);
+            },
+            getValue: () => value,
+            setValue: newValue => {
+                if (value === newValue) return;
+                const oldValue = value;
+                value = newValue;
+                listeners.forEach(callback => callback(value, oldValue));
+            }
+        }
+    };
+
+    let sum = 0;
+    const trackable = Observable(0);
+
+    trackable.onChange(function () {
+        return sum += trackable.getValue();
+    })
+
+    trackable.setValue(x_);
+    document.writeln(trackable.getValue());
+    document.writeln(sum);
+    trackable.setValue(y_);
+    document.writeln(trackable.getValue());
+    document.writeln(sum);
+    trackable.setValue(z_);
+    document.writeln(trackable.getValue());
+    document.writeln(sum);
+    console.log(trackable.getValue() === z_ && sum === x_ + y_ + z_);
+    </script>
+    </pre>
+</body>
+</html>
