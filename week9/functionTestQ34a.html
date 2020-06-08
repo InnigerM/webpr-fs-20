@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function Tests</title>
+</head>
+<body>
+<pre><script>
+    const value = {};
+
+    document.writeln((({} == value) === false))
+    document.writeln((({} > value) === false))
+    document.writeln((({} >= value) === true));
+    document.writeln((({} == value) === false) && (({} > value) === false) && (({} >= value) === true));
+    </script>
+    </pre>
+</body>
+</html>

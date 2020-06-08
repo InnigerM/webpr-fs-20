@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function Tests</title>
+</head>
+<body>
+<pre><script>
+    // const door = {open: false};
+    //
+    // const open = door => {
+    //     let result = "open";
+    //     door.open && (result = "already open");
+    //
+    //     door.open = true;
+    //     return result;
+    // };
+    //
+    // document.writeln("Door is ");
+    // document.writeln(open(door) || "closed");
+
+    // const door = {open: false};
+    //
+    // const open = door => {
+    //     if(door.open) {
+    //         return "already open";
+    //     }
+    //     door.open = true;
+    //     return "open";
+    // };
+    //
+    // document.writeln("Door is ");
+    // document.writeln(open(door) || "closed");
+
+    const door = {open: false};
+
+    const open = door => {
+        if(door.open) {
+            return "already open";
+        }
+        door.open = true;
+        return "open";
+    };
+
+    document.writeln("Door is ");
+    document.writeln(open(door) ? open(door) : "closed");
+    </script>
+    </pre>
+</body>
+</html>

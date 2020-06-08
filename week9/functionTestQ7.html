@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function Tests</title>
+</head>
+<body>
+<pre><script>
+    const pair = a => b => f => f(a)(b);
+    const fst = p => p(true);
+    const snd = p => p(false);
+
+    const pairEq = a => b => fst(a) === fst(b) && snd(a) === snd(b);
+
+    const pairMap = f => p => pair(f(fst(p)))(f(snd(p)));
+
+    const oneTwo = pair(1)(2);
+    const square = x => x * x;
+    const result = pairMap(square)(oneTwo);
+    document.writeln(pairEq(result)(pair(1)(4)));
+    </script>
+    </pre>
+</body>
+</html>
